@@ -2,13 +2,17 @@ public class Main {
 
     public static void main (String[] args){
 
-        String nombre = "Roberto";
-        String apellidos = "Gonzalez Castillo";
-        double altura = 1.9;
-        int peso = 86;
-        int edad = 27;
+        Persona estudiante1 = new Persona("Roberto", "Gonzalez Castillo", 1.9, 86, 27);
 
-        System.out.println(hipotenusa(altura, altura));
+//        estudiante1.nombre = "Roberto";
+//        estudiante1.apellidos = "Gonzalez Castillo";
+//        estudiante1.altura = 1.9;
+//        estudiante1.peso = 86;
+//        estudiante1.edad = 27;
+
+        System.out.println(estudiante1.altura);
+
+//        System.out.println(hipotenusa(altura, altura));
     }
 
     public static double hipotenusa(double cateto1, double cateto2) {
