@@ -30,4 +30,7 @@ public class Persona {
         this.nombre = nombre;
         this.apellidos = apellidos;
     }
+
+    public Persona() {
+    }
 }
