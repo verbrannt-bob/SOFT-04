@@ -1,13 +1,12 @@
 package gonzalez.roberto.dl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.xml.transform.Result;
+import java.sql.*;
 
 public class AccesoBD {
     private Connection conexion;
     private Statement statement;
+    private PreparedStatement preparedStatement;
 
     public AccesoBD(String direccion, String usuario, String contrasenia) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -17,5 +16,12 @@ public class AccesoBD {
     public void ejecutarStatement(String statement) throws SQLException {
         this.statement = conexion.createStatement();
         this.statement.executeUpdate(statement);
+    }
+
+    public ResultSet ejecutarQuery(String query, String cedula, String contrasenia) throws SQLException {
+        preparedStatement = conexion.prepareStatement(query);
+        preparedStatement.setString(1, cedula);
+        preparedStatement.setString(2, contrasenia);
+        return preparedStatement.executeQuery();
     }
 }

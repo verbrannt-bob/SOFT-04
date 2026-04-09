@@ -1,6 +1,9 @@
 package gonzalez.roberto.tl;
 
+import gonzalez.roberto.bl.entities.Cliente;
 import gonzalez.roberto.bl.logic.GestorCliente;
+import gonzalez.roberto.bl.logic.GestorCuentaAhorro;
+import gonzalez.roberto.bl.logic.GestorCuentaDebito;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,5 +30,22 @@ public class Controlador {
         System.out.println("\n Ingrese su contraseña");
         String contrasenia = entrada.readLine();
         System.out.println(GestorCliente.registrarCliente(nombre_completo, cedula, fechaNacimiento, ocupacion, residencia, contrasenia));
+    }
+
+    public static Cliente ingresarCliente() throws IOException, SQLException, ClassNotFoundException {
+        System.out.println("\n--- Ingreso como cliente ---");
+        System.out.println("\nIngrese su cedula:");
+        String cedula = entrada.readLine();
+        System.out.println("Ingrese su contraseña:");
+        String contrasenia = entrada.readLine();
+        return GestorCliente.ingresarCliente(cedula,contrasenia);
+    }
+
+    public static void registrarCuentaAhorros(Cliente cliente) throws SQLException, IOException, ClassNotFoundException {
+        System.out.print(GestorCuentaAhorro.registarCuentaAhorro(cliente));
+    }
+
+    public static void registrarCuentaDebito(Cliente cliente) throws SQLException, IOException, ClassNotFoundException {
+        System.out.println(GestorCuentaDebito.registrarCuentaDebito(cliente));
     }
 }
