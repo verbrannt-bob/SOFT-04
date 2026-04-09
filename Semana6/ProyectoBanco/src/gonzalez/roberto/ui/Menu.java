@@ -8,8 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 
-import static gonzalez.roberto.tl.Controlador.registrarCliente;
-import static gonzalez.roberto.tl.Controlador.registrarCuentaAhorros;
+import static gonzalez.roberto.tl.Controlador.*;
 
 public class Menu {
     private static BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
@@ -57,6 +56,9 @@ public class Menu {
                     case "2":
                         registrarCuentaDebito(cliente);
                         break;
+
+                    case "3":
+                        registrarCuentaCredito(cliente);
                 }
         }
     }

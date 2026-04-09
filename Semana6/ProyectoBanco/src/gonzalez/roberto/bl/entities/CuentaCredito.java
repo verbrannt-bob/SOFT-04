@@ -24,6 +24,10 @@ public class CuentaCredito extends Cuenta{
         return contador;
     }
 
+    public double getLimite() {
+        return limite;
+    }
+
     //toString
     public String toString(){
         return "Cuenta de Credito: " + ID;
