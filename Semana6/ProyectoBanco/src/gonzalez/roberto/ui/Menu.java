@@ -1,6 +1,7 @@
 package gonzalez.roberto.ui;
 
 import gonzalez.roberto.bl.entities.Cliente;
+import gonzalez.roberto.bl.logic.GestorCuentaAhorro;
 import gonzalez.roberto.tl.Controlador;
 
 import java.io.BufferedReader;
@@ -42,7 +43,8 @@ public class Menu {
 
     public static void menuCliente(Cliente cliente) throws IOException, SQLException, ClassNotFoundException {
         System.out.print("\nSeleccione una opcion:");
-        System.out.print("\n1. Sacar una cuenta");
+        System.out.print("\n1. Abrir una cuenta");
+        System.out.print("\n2. Hacer un retiro");
         String opcion = entrada.readLine();
         switch(opcion){
             case "1":
@@ -59,7 +61,13 @@ public class Menu {
 
                     case "3":
                         registrarCuentaCredito(cliente);
+                        break;
                 }
+                break;
+
+            case "2":
+                retirar(cliente);
+                break;
         }
     }
 }

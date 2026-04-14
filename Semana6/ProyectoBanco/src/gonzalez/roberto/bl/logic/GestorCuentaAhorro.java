@@ -13,4 +13,8 @@ public class GestorCuentaAhorro {
     public static String registarCuentaAhorro(Cliente cliente) throws SQLException, IOException, ClassNotFoundException {
         return DAOCuentaAhorro.insertarCuentaAhorro(new CuentaAhorros(interes), cliente);
     }
+
+    public static String retirar(Cliente cliente, String id, double monto) throws SQLException, IOException, ClassNotFoundException {
+        return DAOCuentaAhorro.actualizarRetiro(cliente, id, monto);
+    }
 }

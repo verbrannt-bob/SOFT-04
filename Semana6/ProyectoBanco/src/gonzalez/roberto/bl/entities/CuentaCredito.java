@@ -14,6 +14,12 @@ public class CuentaCredito extends Cuenta{
         this.limite = limite;
     }
 
+    public CuentaCredito(String id, double tasaInteres, double limite) {
+        this.ID = id;
+        this.tasaInteres = tasaInteres;
+        this.limite = limite;
+    }
+
     //getters
 
     public String getID() {
@@ -34,9 +40,9 @@ public class CuentaCredito extends Cuenta{
     }
 
     //métodos
-    public void retirar(double montoRetiro){
-        if (saldo - montoRetiro < limite){
-            System.out.println("No es posible hacer este retiro ya que excedería el limite de crédito");
+    public void retirar(double montoRetiro) throws SaldoInsuficienteException{
+        if (saldo - montoRetiro > -limite){
+            throw new SaldoInsuficienteException("No es posible hacer este retiro ya que excedería el limite de crédito");
         } else {
             saldo -= montoRetiro;
         }

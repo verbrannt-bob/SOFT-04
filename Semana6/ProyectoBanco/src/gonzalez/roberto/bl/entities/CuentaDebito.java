@@ -20,6 +20,12 @@ public class CuentaDebito extends Cuenta{
         this.saldo = saldoInicial;
     }
 
+    public CuentaDebito(String id, double tasaInteres, double saldoInicial) {
+        this.ID = id;
+        this.tasaInteres = tasaInteres;
+        this.saldo = saldoInicial;
+    }
+
     //toString
     public String toString() {
         return "Cuenta de Debito: " + ID;
@@ -36,9 +42,9 @@ public class CuentaDebito extends Cuenta{
     }
 
     //metodos
-    public void retirar(double montoRetiro){
+    public void retirar(double montoRetiro) throws SaldoInsuficienteException{
         if(this.saldo - montoRetiro < 0){
-            System.out.println("Saldo insuficiente");
+            throw new SaldoInsuficienteException("Saldo insuficiente");
         } else {
             saldo -= montoRetiro;
         }

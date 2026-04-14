@@ -65,5 +65,33 @@ public class Controlador {
         else if (Objects.equals(opcion, "3")) System.out.println(GestorCuentaCredito.registrarCuentaCredito(cliente, 0.08, 10000));
     }
 
+    public static void retirar(Cliente cliente) throws IOException, SQLException, ClassNotFoundException {
+        System.out.print("Ingrese el ID de la cuenta");
+        String id = entrada.readLine().toUpperCase();
+        char tipo = id.charAt(1);
+        System.out.print("Tipo:" + tipo);
+        System.out.print("---Retiro---");
+        System.out.print("Ingrese el monto a retirar:");
+        double monto = Double.parseDouble(entrada.readLine());
+        switch(tipo) {
+            case 'A':
+                System.out.print(GestorCuentaAhorro.retirar(cliente, id, monto));
+                break;
+
+            case 'C':
+                System.out.print(GestorCuentaCredito.retirar(cliente, id, monto));
+                break;
+
+            case 'D':
+                System.out.print(GestorCuentaDebito.retirar(cliente, id, monto));
+                break;
+
+            default:
+                System.out.print("El formato del ID es invalido. Debe comenzar con CA, CC o CD");
+                break;
+        }
+
+    }
+
 
 }

@@ -23,7 +23,7 @@ public abstract class Cuenta {
     public abstract String toString();
 
     //métodos
-    public abstract void retirar(double montoRetiro);
+    public abstract void retirar(double montoRetiro) throws Exception;
 
     public abstract void generarIntereses();
 

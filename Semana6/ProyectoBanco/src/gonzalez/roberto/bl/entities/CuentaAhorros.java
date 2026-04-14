@@ -21,6 +21,12 @@ public class CuentaAhorros extends Cuenta{
         this.saldo = saldoInicial;
     }
 
+    public CuentaAhorros(String ID, double tasaInteres, double saldo) {
+        this.ID = ID;
+        this.tasaInteres = tasaInteres;
+        this.saldo = saldo;
+    }
+
     //toString
     public String toString() {
         return "Cuenta de Ahorros: " + ID;
@@ -38,9 +44,9 @@ public class CuentaAhorros extends Cuenta{
 
     //metodos
 
-    public void retirar(double montoRetiro){
+    public void retirar(double montoRetiro) throws SaldoInsuficienteException {
         if(this.saldo - montoRetiro < 100){
-            System.out.println("Saldo insuficiente");
+            throw new SaldoInsuficienteException("Saldo insuficiente");
         } else {
             saldo -= montoRetiro;
         }
